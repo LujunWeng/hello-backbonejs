@@ -29,3 +29,7 @@ The "See it in action" link does not work. So this is mine:
 
 http://lujunweng.github.io/hello-backbonejs/
 
+# TODO
+Some parts of the final example are kind of confusing, like `addItem` and
+`appendItem`. I think some further examples could be built to show how to refactor
+and make code structure better.
