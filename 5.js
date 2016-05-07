@@ -27,8 +27,8 @@
     initialize: function(){
       _.bindAll(this, 'render', 'unrender', 'swap', 'remove'); // every function that uses 'this' as the current object should be in here
 
-      this.model.bind('change', this.render);
-      this.model.bind('remove', this.unrender);
+      this.model.on('change', this.render);
+      this.model.on('remove', this.unrender);
     },
     // `render()` now includes two extra `span`s corresponding to the actions swap and delete.
     render: function(){
@@ -63,7 +63,7 @@
       _.bindAll(this, 'render', 'addItem', 'appendItem'); // every function that uses 'this' as the current object should be in here
 
       this.collection = new List();
-      this.collection.bind('add', this.appendItem); // collection event binder
+      this.collection.on('add', this.appendItem); // collection event binder
 
       this.counter = 0;
       this.render();

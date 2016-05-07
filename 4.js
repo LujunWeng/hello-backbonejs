@@ -37,7 +37,7 @@
       _.bindAll(this, 'render', 'addItem', 'appendItem'); // every function that uses 'this' as the current object should be in here
 
       this.collection = new List();
-      this.collection.bind('add', this.appendItem); // collection event binder
+      this.collection.on('add', this.appendItem); // collection event binder
 
       this.counter = 0;
       this.render();
