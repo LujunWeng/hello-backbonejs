@@ -34,12 +34,11 @@
       this.render();
     },
     render: function(){
-      // Save reference to `this` so it can be accessed from within the scope of the callback below
-      var self = this;
       this.$el.append("<button id='add'>Add list item</button>");
       this.$el.append("<ul></ul>");
+      // the last argument `this` make sures that the `this` within the callback function refers to ListView
       this.collection.each(function(item){ // in case collection is not empty
-        self.appendItem(item);
+        this.appendItem(item);
       }, this);
     },
     // `addItem()` now deals solely with models/collections. View updates are delegated to the `add` event listener `appendItem()` below.

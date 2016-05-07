@@ -69,11 +69,10 @@
       this.render();
     },
     render: function(){
-      var self = this;
       this.$el.append("<button id='add'>Add list item</button>");
       this.$el.append("<ul></ul>");
       this.collection.each(function(item){ // in case collection is not empty
-        self.appendItem(item);
+        this.appendItem(item);
       }, this);
     },
     addItem: function(){
