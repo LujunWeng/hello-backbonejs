@@ -23,7 +23,7 @@
       _.bindAll(this, 'render'); // every function that uses 'this' as the current object should be in here
     },
     render: function(){
-      $(this.el).html('<span>'+this.model.get('part1')+' '+this.model.get('part2')+'</span>');
+      this.$el.html('<span>'+this.model.get('part1')+' '+this.model.get('part2')+'</span>');
       return this; // for chainable calls, like .render().el
     }
   });
@@ -44,8 +44,8 @@
     },
     render: function(){
       var self = this;
-      $(this.el).append("<button id='add'>Add list item</button>");
-      $(this.el).append("<ul></ul>");
+      this.$el.append("<button id='add'>Add list item</button>");
+      this.$el.append("<ul></ul>");
       _(this.collection.models).each(function(item){ // in case collection is not empty
         self.appendItem(item);
       }, this);

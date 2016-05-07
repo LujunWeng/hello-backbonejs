@@ -16,7 +16,7 @@
     },
     // `render()`: Function in charge of rendering the entire view in `this.el`. Needs to be manually called by the user.
     render: function(){
-      $(this.el).append("<ul> <li>hello world</li> </ul>");
+      this.$el.append("<ul> <li>hello world</li> </ul>");
     }
   });
 

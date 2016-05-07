@@ -19,8 +19,8 @@
     },
     // `render()` now introduces a button to add a new list item.
     render: function(){
-      $(this.el).append("<button id='add'>Add list item</button>");
-      $(this.el).append("<ul></ul>");
+      this.$el.append("<button id='add'>Add list item</button>");
+      this.$el.append("<ul></ul>");
     },
     // `addItem()`: Custom function called via `click` event above.
     addItem: function(){

@@ -36,8 +36,8 @@
     render: function(){
       // Save reference to `this` so it can be accessed from within the scope of the callback below
       var self = this;
-      $(this.el).append("<button id='add'>Add list item</button>");
-      $(this.el).append("<ul></ul>");
+      this.$el.append("<button id='add'>Add list item</button>");
+      this.$el.append("<ul></ul>");
       _(this.collection.models).each(function(item){ // in case collection is not empty
         self.appendItem(item);
       }, this);
