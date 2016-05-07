@@ -6,7 +6,7 @@
 //
 (function($){
   var ListView = Backbone.View.extend({
-    el: $('body'), // el attaches to existing element
+    el: 'body', // el attaches to existing element
     // `events`: Where DOM events are bound to View methods. Backbone doesn't have a separate controller to handle such bindings; it all happens in a View.
     events: {
       'click button#add': 'addItem'

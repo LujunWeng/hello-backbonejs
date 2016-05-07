@@ -19,7 +19,7 @@
   });
 
   var ListView = Backbone.View.extend({
-    el: $('body'),
+    el: 'body',
     events: {
       'click button#add': 'addItem'
     },

@@ -59,7 +59,7 @@
 
   // Because the new features (swap and delete) are intrinsic to each `Item`, there is no need to modify `ListView`.
   var ListView = Backbone.View.extend({
-    el: $('body'), // el attaches to existing element
+    el: 'body', // el attaches to existing element
     events: {
       'click button#add': 'addItem'
     },
