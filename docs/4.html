@@ -1,67 +1,188 @@
-<!DOCTYPE html>  <html> <head>   <title>4.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="1.html">                 1.js               </a>                                           <a class="source" href="2.html">                 2.js               </a>                                           <a class="source" href="3.html">                 3.js               </a>                                           <a class="source" href="4.html">                 4.js               </a>                                           <a class="source" href="5.html">                 5.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               4.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p><strong>This example illustrates how to delegate the rendering of a Model to a dedicated View.</strong></p>
+<!DOCTYPE html>
 
-<p><em>Working example: <a href="../4.html">4.html</a>.</em> <br />
-<em><a href="5.html">Go to Example 5</a></em></p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span>
-  <span class="kd">var</span> <span class="nx">Item</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-    <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">part1</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
-      <span class="nx">part2</span><span class="o">:</span> <span class="s1">&#39;world&#39;</span>
-    <span class="p">}</span>
-  <span class="p">});</span>
+<html>
+<head>
+  <title>4.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="1.html">
+                  1.js
+                </a>
+              
+                
+                <a class="source" href="2.html">
+                  2.js
+                </a>
+              
+                
+                <a class="source" href="3.html">
+                  3.js
+                </a>
+              
+                
+                <a class="source" href="4.html">
+                  4.js
+                </a>
+              
+                
+                <a class="source" href="5.html">
+                  5.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>4.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p><strong>This example illustrates how to delegate the rendering of a Model to a dedicated View.</strong></p>
+<p><em>Working example: <a href="../4.html">4.html</a>.</em>
+<em><a href="5.html">Go to Example 5</a></em></p>
 
-  <span class="kd">var</span> <span class="nx">List</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-    <span class="nx">model</span><span class="o">:</span> <span class="nx">Item</span>
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p><strong>ItemView class</strong>: Responsible for rendering each individual <code>Item</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">ItemView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-    <span class="nx">tagName</span><span class="o">:</span> <span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="c1">// name of (orphan) root tag in this.el</span>
-    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="nx">_</span><span class="p">.</span><span class="nx">bindAll</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;render&#39;</span><span class="p">);</span> <span class="c1">// every function that uses &#39;this&#39; as the current object should be in here</span>
-    <span class="p">},</span>
-    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&lt;span&gt;&#39;</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part1&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part2&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">);</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">;</span> <span class="c1">// for chainable calls, like .render().el</span>
-    <span class="p">}</span>
-  <span class="p">});</span>
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$</span>)</span>{
+  <span class="hljs-keyword">var</span> Item = Backbone.Model.extend({
+    defaults: {
+      part1: <span class="hljs-string">'hello'</span>,
+      part2: <span class="hljs-string">'world'</span>
+    }
+  });
 
-  <span class="kd">var</span> <span class="nx">ListView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-    <span class="nx">el</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">),</span> <span class="c1">// el attaches to existing element</span>
-    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s1">&#39;click button#add&#39;</span><span class="o">:</span> <span class="s1">&#39;addItem&#39;</span>
-    <span class="p">},</span>
-    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="nx">_</span><span class="p">.</span><span class="nx">bindAll</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;render&#39;</span><span class="p">,</span> <span class="s1">&#39;addItem&#39;</span><span class="p">,</span> <span class="s1">&#39;appendItem&#39;</span><span class="p">);</span> <span class="c1">// every function that uses &#39;this&#39; as the current object should be in here</span>
+  <span class="hljs-keyword">var</span> List = Backbone.Collection.extend({
+    model: Item
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><strong>ItemView class</strong>: Responsible for rendering each individual <code>Item</code>.</p>
 
-      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">List</span><span class="p">();</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">appendItem</span><span class="p">);</span> <span class="c1">// collection event binder</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> ItemView = Backbone.View.extend({
+    tagName: <span class="hljs-string">'li'</span>, <span class="hljs-comment">// name of (orphan) root tag in this.el</span>
+    initialize: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      _.bindAll(<span class="hljs-keyword">this</span>, <span class="hljs-string">'render'</span>); <span class="hljs-comment">// every function that uses 'this' as the current object should be in here</span>
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-keyword">this</span>.$el.html(<span class="hljs-string">'&lt;span&gt;'</span>+<span class="hljs-keyword">this</span>.model.get(<span class="hljs-string">'part1'</span>)+<span class="hljs-string">' '</span>+<span class="hljs-keyword">this</span>.model.get(<span class="hljs-string">'part2'</span>)+<span class="hljs-string">'&lt;/span&gt;'</span>);
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>; <span class="hljs-comment">// for chainable calls, like .render().el</span>
+    }
+  });
 
-      <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
-    <span class="p">},</span>
-    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;button id=&#39;add&#39;&gt;Add list item&lt;/button&gt;&quot;</span><span class="p">);</span>
-      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;ul&gt;&lt;/ul&gt;&quot;</span><span class="p">);</span>
-      <span class="nx">_</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">models</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span> <span class="c1">// in case collection is not empty</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">appendItem</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
-      <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="nx">addItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
-      <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Item</span><span class="p">();</span>
-      <span class="nx">item</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
-        <span class="nx">part2</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part2&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="c1">// modify item defaults</span>
-      <span class="p">});</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
-    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p><code>appendItem()</code> is no longer responsible for rendering an individual <code>Item</code>. This is now delegated to the <code>render()</code> method of each <code>ItemView</code> instance.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">appendItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
-      <span class="kd">var</span> <span class="nx">itemView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ItemView</span><span class="p">({</span>
-        <span class="nx">model</span><span class="o">:</span> <span class="nx">item</span>
-      <span class="p">});</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">itemView</span><span class="p">.</span><span class="nx">render</span><span class="p">().</span><span class="nx">el</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">});</span>
+  <span class="hljs-keyword">var</span> ListView = Backbone.View.extend({
+    el: <span class="hljs-string">'body'</span>, <span class="hljs-comment">// el attaches to existing element</span>
+    events: {
+      <span class="hljs-string">'click button#add'</span>: <span class="hljs-string">'addItem'</span>
+    },
+    initialize: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      _.bindAll(<span class="hljs-keyword">this</span>, <span class="hljs-string">'render'</span>, <span class="hljs-string">'addItem'</span>, <span class="hljs-string">'appendItem'</span>); <span class="hljs-comment">// every function that uses 'this' as the current object should be in here</span>
 
-  <span class="kd">var</span> <span class="nx">listView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ListView</span><span class="p">();</span>
-<span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <div style="float:left; margin-bottom:40px;"><img style="width:36px; margin:5px 10px 0 5px;" src="https://g.twimg.com/Twitter_logo_blue.png"/></div> <div style="background:rgb(245,245,255); padding:10px;">Follow me on Twitter: <a target="_blank" href="http://twitter.com/r2r">@r2r</a> </div>
+      <span class="hljs-keyword">this</span>.collection = <span class="hljs-keyword">new</span> List();
+      <span class="hljs-keyword">this</span>.collection.on(<span class="hljs-string">'add'</span>, <span class="hljs-keyword">this</span>.appendItem); <span class="hljs-comment">// collection event binder</span>
 
+      <span class="hljs-keyword">this</span>.counter = <span class="hljs-number">0</span>;
+      <span class="hljs-keyword">this</span>.render();
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-keyword">this</span>.$el.append(<span class="hljs-string">"&lt;button id='add'&gt;Add list item&lt;/button&gt;"</span>);
+      <span class="hljs-keyword">this</span>.$el.append(<span class="hljs-string">"&lt;ul&gt;&lt;/ul&gt;"</span>);
+      <span class="hljs-keyword">this</span>.collection.each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{ <span class="hljs-comment">// in case collection is not empty</span>
+        <span class="hljs-keyword">this</span>.appendItem(item);
+      }, <span class="hljs-keyword">this</span>);
+    },
+    addItem: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-keyword">this</span>.counter++;
+      <span class="hljs-keyword">var</span> item = <span class="hljs-keyword">new</span> Item();
+      item.set({
+        part2: item.get(<span class="hljs-string">'part2'</span>) + <span class="hljs-keyword">this</span>.counter <span class="hljs-comment">// modify item defaults</span>
+      });
+      <span class="hljs-keyword">this</span>.collection.add(item);
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p><code>appendItem()</code> is no longer responsible for rendering an individual <code>Item</code>. This is now delegated to the <code>render()</code> method of each <code>ItemView</code> instance.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    appendItem: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{
+      <span class="hljs-keyword">var</span> itemView = <span class="hljs-keyword">new</span> ItemView({
+        model: item
+      });
+      $(<span class="hljs-string">'ul'</span>, <span class="hljs-keyword">this</span>.el).append(itemView.render().el);
+    }
+  });
+
+  <span class="hljs-keyword">var</span> listView = <span class="hljs-keyword">new</span> ListView();
+})(jQuery);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><div style="float:left; margin-bottom:40px;"><img style="width:36px; margin:5px 10px 0 5px;" src="https://g.twimg.com/Twitter_logo_blue.png"/></div> <div style="background:rgb(245,245,255); padding:10px;">Follow me on Twitter: <a target="_blank" href="http://twitter.com/r2r">@r2r</a> </div></p>
 <script>
   if (window.location.href.search(/\?x/) < 0) {
     var _gaq = _gaq || [];
@@ -73,4 +194,13 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   }
-</script>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html>
+</script>
+
+            </div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
