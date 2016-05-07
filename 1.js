@@ -1,6 +1,7 @@
 // **This example illustrates the declaration and instantiation of a minimalist View.**
 //
 // _Working example: [1.html](../1.html)._
+// 
 // _[Go to Example 2](2.html)_
 
 // Self-executing wrapper
